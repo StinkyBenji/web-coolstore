@@ -87,21 +87,21 @@ commands:
     exec:
       component: java11-maven
       commandLine: "mvn clean -Dmaven.repo.local=/home/user/.m2/repository package -Dmaven.test.skip=true"
-      workingDir: $PROJECTS_ROOT/web-coolstore/catalog-spring-boot
+      workingDir: /projects/web-coolstore/catalog-spring-boot
       group:
         kind: build
   - id: catalog-run
     exec:
       component: java11-maven
       commandLine: "mvn -Dmaven.repo.local=/home/user/.m2/repository spring-boot:run"
-      workingDir: $PROJECTS_ROOT/web-coolstore/catalog-spring-boot
+      workingDir: /projects/web-coolstore/catalog-spring-boot
       group:
         kind: run
   - id: inventory-compile
     exec:
       component: java-quarkus
       commandLine: "mvn -Dmaven.repo.local=/home/user/.m2/repository compile"
-      workingDir: $PROJECTS_ROOT/web-coolstore/inventory-quarkus
+      workingDir: /projects/web-coolstore/inventory-quarkus
   - id: inventory-run
     exec:
       component: java-quarkus
@@ -109,33 +109,33 @@ commands:
       hotReloadCapable: true
       group:
         kind: run
-      workingDir: $PROJECTS_ROOT/web-coolstore/inventory-quarkus
+      workingDir: /projects/web-coolstore/inventory-quarkus
   - id: gateway-build
     exec:
       commandLine: mvn package -Dmaven.test.skip=true
       component: java11-maven
-      workingDir: $PROJECTS_ROOT/web-coolstore/gateway-vertx
+      workingDir: /projects/web-coolstore/gateway-vertx
       group:
         kind: build
   - id: gateway-run
     exec:
       commandLine: mvn io.reactiverse:vertx-maven-plugin:run
       component: java11-maven
-      workingDir: $PROJECTS_ROOT/web-coolstore/gateway-vertx
+      workingDir: /projects/web-coolstore/gateway-vertx
       group:
         kind: run
   - id: web-install
     exec:
       component: nodejs
       commandLine: npm install
-      workingDir: $PROJECTS_ROOT/web-coolstore/web-nodejs
+      workingDir: /projects/web-coolstore/web-nodejs
       group:
         kind: build
   - id: web-run
     exec:
       component: nodejs
       commandLine: npm start
-      workingDir: $PROJECTS_ROOT/web-coolstore/web-nodejs
+      workingDir: /projects/web-coolstore/web-nodejs
       group:
         kind: run
   - id: deploy-catalog
